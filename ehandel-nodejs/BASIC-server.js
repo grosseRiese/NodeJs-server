@@ -7,7 +7,6 @@ const app = express();
 const port = process.env.PORT || 5000;
 const addProductsModule = require('./modules/addProducts');
 const resReqServer= require('./modules/reqRes-Server')
-app.use(express.static('public'));
 app.use(express.json());
 
 
