@@ -1,5 +1,4 @@
 module.exports = (app, db) => {
-   
      /**
      * 
      * Products section
