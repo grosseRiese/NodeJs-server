@@ -39,6 +39,8 @@ Inlämning sker via Github och Learnpoint. Ladda upp ditt projekt på Github ink
 **Inlämning senast**: 22/4 23:59 
 
 
-**//DONT forget: cd folder !**
-**//-> npm run watch ....(using nodemon) /OR**
-**//-> node BASIC-server.js**
+**DONN'T forget:**
+* cd folder !
+* -> npm run watch ....(using nodemon) /OR
+* -> node BASIC-server.js
+* -> use Postman as client-side...
