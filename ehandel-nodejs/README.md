@@ -39,7 +39,7 @@ Inlämning sker via Github och Learnpoint. Ladda upp ditt projekt på Github ink
 **Inlämning senast**: 22/4 23:59 
 
 
-**DONN'T forget:**
+**DONN'T forget: (added by me)**
 * cd folder !
 * -> npm run watch ....(using nodemon) /OR
 * -> node BASIC-server.js
