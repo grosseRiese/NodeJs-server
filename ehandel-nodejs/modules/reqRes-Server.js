@@ -44,11 +44,7 @@ module.exports = (app, db) => {
     const searchProduct = (sendItem)=>{
         let findItem = {id:parseInt(sendItem.id)};
         let addItem = db.get('products').find(findItem).value();
-        if(addItem !=undefined){
-            return addItem;
-        }else{
-            res.status(500).send('Account not found.')
-        }
+        return addItem;
     }
     //Validate before add to cart
     const addToCart = async (sendProduct, res) => {  
