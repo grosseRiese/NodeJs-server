@@ -46,25 +46,34 @@ module.exports = (app, db) => {
         return addItem;
     }
     //Validate before add to cart
-    const addToCart = async (sendProduct, res) => {  
-        let findProduct = await db.get('cart')
-                            .find( {id : parseInt(sendProduct.id),
-                                    product : sendProduct.product})
-                            .value();
-        let responseSuccess = {
-            Success:true,
-            message: 'Product has added to shopping Cart'
-        }
-        let responseError = {
-            Status: 'Error: - What you doing!?',
-            message: 'Cann\'t add this , the product is already in shopping Cart!'
-        }
-       findProduct != undefined
-                    ? ( res.send(JSON.stringify(responseError)),
-                        console.log(responseError))
-                    : ( db.get('cart').push(sendProduct).write(),
-                        res.send(JSON.stringify(responseSuccess)),
-                        console.log(responseSuccess) );   
+    const addToCart = async (sendProduct, res) => { 
+        try{ 
+                let findProduct = await db.get('cart')
+                                    .find( {id : parseInt(sendProduct.id),
+                                            product : sendProduct.product})
+                                    .value();
+                let responseSuccess = {
+                    Success:true,
+                    message: 'Product has added to shopping Cart'
+                }
+                let responseError = {
+                    Status: 'Error: - What you doing!?',
+                    message: 'Cann\'t add this , the product is already in shopping Cart!'
+                }
+            findProduct != undefined
+                            ? ( res.send(JSON.stringify(responseError)),
+                                console.log(responseError))
+                            : ( db.get('cart').push(sendProduct).write(),
+                                res.send(JSON.stringify(responseSuccess)),
+                                console.log(responseSuccess) );   
+       }catch{
+           message = {
+               status: 'Not valid',
+               message: 'Product not found or something went wrong!'
+           };
+            res.send(JSON.stringify(message));
+            console.log(message);
+       }
     }
     /***
      * Add item
